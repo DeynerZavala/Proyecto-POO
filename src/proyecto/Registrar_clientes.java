@@ -68,6 +68,7 @@ public class Registrar_clientes extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(980, 570));
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setVerifyInputWhenFocusTarget(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         hideBtn.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -103,6 +104,8 @@ public class Registrar_clientes extends javax.swing.JFrame {
                 .addComponent(hideTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jPanel1.add(hideBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, -1, -1));
+
         exitBtn.setBackground(new java.awt.Color(255, 255, 255));
 
         exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
@@ -136,6 +139,8 @@ public class Registrar_clientes extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(exitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel1.add(exitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, -1));
 
         backBtn.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -171,6 +176,8 @@ public class Registrar_clientes extends javax.swing.JFrame {
                 .addComponent(backTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         header.setBackground(new java.awt.Color(255, 255, 255));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -194,20 +201,28 @@ public class Registrar_clientes extends javax.swing.JFrame {
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
+        jPanel1.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, -1));
+
         Nombre.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         Nombre.setText("Nombre");
+        jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 113, 124, -1));
 
         Apellidos.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         Apellidos.setText("Apellidos");
+        jPanel1.add(Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 169, -1, 38));
 
         Dni.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         Dni.setText("Dni");
+        jPanel1.add(Dni, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 56, 38, 38));
 
         DVeri.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         DVeri.setText("Digito Verificador");
+        jPanel1.add(DVeri, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 225, -1, 38));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 81, -1, -1));
 
         Email.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         Email.setText("E-mail");
+        jPanel1.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 287, 68, 39));
 
         Enviarcodigo.setBackground(new java.awt.Color(51, 153, 0));
         Enviarcodigo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -243,8 +258,11 @@ public class Registrar_clientes extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
+        jPanel1.add(Enviarcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(642, 286, -1, -1));
+
         Codigo.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         Codigo.setText("Codigo");
+        jPanel1.add(Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 350, 68, 38));
 
         nNombre.setForeground(new java.awt.Color(204, 204, 204));
         nNombre.setText("Andrew Jame");
@@ -253,6 +271,7 @@ public class Registrar_clientes extends javax.swing.JFrame {
                 nNombreActionPerformed(evt);
             }
         });
+        jPanel1.add(nNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 109, 356, 38));
 
         nDni.setForeground(new java.awt.Color(204, 204, 204));
         nDni.setText("12345678");
@@ -261,9 +280,11 @@ public class Registrar_clientes extends javax.swing.JFrame {
                 nDniActionPerformed(evt);
             }
         });
+        jPanel1.add(nDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 56, 356, 38));
 
         nEmail.setForeground(new java.awt.Color(204, 204, 204));
         nEmail.setText("salchipapa@gmai.com");
+        jPanel1.add(nEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 286, 356, 38));
 
         nApellidos.setForeground(new java.awt.Color(204, 204, 204));
         nApellidos.setText(" Redmayne Dancingclow");
@@ -272,92 +293,14 @@ public class Registrar_clientes extends javax.swing.JFrame {
                 nApellidosActionPerformed(evt);
             }
         });
+        jPanel1.add(nApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 169, 356, 38));
 
         nDigito.setForeground(new java.awt.Color(204, 204, 204));
         nDigito.setText("6");
+        jPanel1.add(nDigito, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 227, 356, 38));
 
         nCodigo.setText("1234");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(hideBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Dni, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Codigo, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                                .addComponent(Email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(DVeri)
-                            .addComponent(Apellidos)
-                            .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nDigito, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(357, 357, 357)
-                                    .addComponent(jLabel1))
-                                .addComponent(nDni, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(nEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Enviarcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hideBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jLabel1))
-                    .addComponent(nDni, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(Dni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(Apellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nDigito, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DVeri, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(Email, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(Enviarcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(180, 180, 180))
-        );
+        jPanel1.add(nCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 352, 356, 38));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 570));
 
@@ -370,7 +313,7 @@ public class Registrar_clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_headerMousePressed
 
     private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
-        int x = evt.getXOnScreen();
+        int x = evt.getXOnScreen()-60;
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headerMouseDragged

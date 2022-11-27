@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Login extends javax.swing.JFrame {
+    private String NArchivo="usuario.txt";
     private Scanner sc;
     private int intentos;
     private String user,pwd;
@@ -304,7 +305,7 @@ public class Login extends javax.swing.JFrame {
             String []usuarios=null;
             String linea;
             
-            File file =new File("usuario.txt");
+            File file =new File(this.NArchivo);
         try {
             boolean filecreated = file.createNewFile();
             if(filecreated){
@@ -319,7 +320,7 @@ public class Login extends javax.swing.JFrame {
         }
         
         try {
-            sc =new Scanner(new File("usuario.txt"));
+            sc =new Scanner(new File(this.NArchivo));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -351,7 +352,7 @@ public class Login extends javax.swing.JFrame {
             new Login().setVisible(false);
             MenuAdministrador m=new MenuAdministrador();
             m.setVisible(true);
-            this.dispose();
+            dispose();
         }
             
     }//GEN-LAST:event_loginBtnTxtMouseClicked
