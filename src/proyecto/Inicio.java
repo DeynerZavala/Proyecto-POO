@@ -6,6 +6,7 @@ package proyecto;
 
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class Inicio extends javax.swing.JFrame {
     int xMouse, yMouse;
@@ -39,6 +40,7 @@ public class Inicio extends javax.swing.JFrame {
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,10 +75,11 @@ public class Inicio extends javax.swing.JFrame {
 
         exitBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        exitTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         exitTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exitTxt.setText("X");
         exitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        exitTxt.setInheritsPopupMenu(false);
         exitTxt.setPreferredSize(new java.awt.Dimension(40, 40));
         exitTxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -109,9 +112,9 @@ public class Inicio extends javax.swing.JFrame {
 
         hideBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        hideTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        hideTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         hideTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hideTxt.setText("━");
+        hideTxt.setText("—");
         hideTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hideTxt.setPreferredSize(new java.awt.Dimension(40, 40));
         hideTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -251,7 +254,10 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_header2MousePressed
 
     private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
-        System.exit(0);
+        //0 si  1 no
+        if(0==Mensaje.Preguntar("Estas a punto de salir ¿Estas Seguro?", "¿Desea Salir?")){
+            System.exit(0);
+        }
     }//GEN-LAST:event_exitTxtMouseClicked
 
     private void exitTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseEntered
@@ -279,7 +285,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_hideTxtMouseExited
 
     private void ClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClienteMouseClicked
-        MostrarCarros mc = new MostrarCarros();
+        MostrarVehiculo mc = new MostrarVehiculo();
         mc.setVisible(true);
         this.dispose();
         

@@ -5,13 +5,12 @@
 package proyecto;
 
 import java.awt.Color;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author USUARIO
  */
-public class MenuAdministrador extends javax.swing.JFrame {
+public class Menu extends javax.swing.JFrame {
 
     private int xMouse;
     private int yMouse;
@@ -19,7 +18,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
-    public MenuAdministrador() {
+    public Menu() {
         initComponents();
     }
 
@@ -39,11 +38,10 @@ public class MenuAdministrador extends javax.swing.JFrame {
         exitTxt = new javax.swing.JLabel();
         hideBtn = new javax.swing.JPanel();
         hideTxt = new javax.swing.JLabel();
-        logout = new javax.swing.JLabel();
         Registrar_cliente = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Fondo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -51,6 +49,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(980, 570));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -84,7 +83,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
         exitBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        exitTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         exitTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exitTxt.setText("X");
         exitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -120,9 +119,9 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
         hideBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        hideTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        hideTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         hideTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hideTxt.setText("—");
+        hideTxt.setText("━");
         hideTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hideTxt.setPreferredSize(new java.awt.Dimension(40, 40));
         hideTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -153,16 +152,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
         );
 
         jPanel1.add(hideBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 0, -1, 40));
-
-        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/logout.png"))); // NOI18N
-        logout.setText("jLabel1");
-        logout.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        logout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoutMouseClicked(evt);
-            }
-        });
-        jPanel1.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 450, 100, 100));
 
         Registrar_cliente.setBackground(new java.awt.Color(204, 204, 0));
         Registrar_cliente.setForeground(new java.awt.Color(255, 255, 255));
@@ -204,9 +193,9 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
         jPanel1.add(Registrar_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 290, 110));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/foto_menu.png"))); // NOI18N
-        Fondo.setText("jLabel1");
-        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 980, 530));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/foto_menu.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 980, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,10 +223,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_header4MousePressed
 
     private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
-        //0 si  1 no        
-        if(0==Mensaje.Preguntar("Estas a punto de salir ¿Estas Seguro?", "¿Desea Salir?")){
-            System.exit(0);
-        }
+        System.exit(0);
     }//GEN-LAST:event_exitTxtMouseClicked
 
     private void exitTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseEntered
@@ -277,15 +263,6 @@ public class MenuAdministrador extends javax.swing.JFrame {
         Registrar_cliente.setBackground(new Color(204,204,0));       
     }//GEN-LAST:event_Registrar_clienteMouseExited
 
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        //0 si  1 no
-        if(0==Mensaje.Preguntar("¿Desea Cerrar Session?", "Cerrar Session")){
-            dispose();
-            new Inicio().setVisible(true);
-        }
-        
-    }//GEN-LAST:event_logoutMouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -303,37 +280,35 @@ public class MenuAdministrador extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuAdministrador().setVisible(true);
+                new Menu().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Fondo;
     private javax.swing.JPanel Registrar_cliente;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header4;
     private javax.swing.JPanel hideBtn;
     private javax.swing.JLabel hideTxt;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
-    private javax.swing.JLabel logout;
     // End of variables declaration//GEN-END:variables
 }

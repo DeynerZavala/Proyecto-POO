@@ -4,23 +4,28 @@
  */
 package proyecto;
 
+
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author USUARIO
  */
 public class Registrar_clientes extends javax.swing.JFrame {
-    private String codigo;
+    private final String nArchivo="PersonaNatural.dat";
     private int xMouse;
     private int yMouse;
+    private String codigo;
+    private String Correo;
 
     /**
      * Creates new form Registrar_clientes
      */
     public Registrar_clientes() {
         initComponents();
-        this.codigo="";
+        this.codigo=null;
+        this.Correo=null;
     }
 
     /**
@@ -55,6 +60,15 @@ public class Registrar_clientes extends javax.swing.JFrame {
         nApellidos = new javax.swing.JTextField();
         nDigito = new javax.swing.JTextField();
         nCodigo = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        header1 = new javax.swing.JPanel();
+        Guardar = new javax.swing.JPanel();
+        Guardartxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -72,9 +86,9 @@ public class Registrar_clientes extends javax.swing.JFrame {
 
         hideBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        hideTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        hideTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         hideTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hideTxt.setText("━");
+        hideTxt.setText("—");
         hideTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hideTxt.setPreferredSize(new java.awt.Dimension(40, 40));
         hideTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,7 +122,7 @@ public class Registrar_clientes extends javax.swing.JFrame {
 
         exitBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        exitTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         exitTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exitTxt.setText("X");
         exitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -144,7 +158,7 @@ public class Registrar_clientes extends javax.swing.JFrame {
 
         backBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        backTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        backTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         backTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         backTxt.setText("\t←");
         backTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -194,11 +208,11 @@ public class Registrar_clientes extends javax.swing.JFrame {
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 816, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel1.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, -1));
@@ -236,71 +250,190 @@ public class Registrar_clientes extends javax.swing.JFrame {
                 EnviarcodigoMouseExited(evt);
             }
         });
+        Enviarcodigo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         nEnviarcodigo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         nEnviarcodigo.setForeground(new java.awt.Color(255, 255, 255));
         nEnviarcodigo.setText("Enviar codigo");
+        Enviarcodigo.add(nEnviarcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 6, -1, 24));
 
-        javax.swing.GroupLayout EnviarcodigoLayout = new javax.swing.GroupLayout(Enviarcodigo);
-        Enviarcodigo.setLayout(EnviarcodigoLayout);
-        EnviarcodigoLayout.setHorizontalGroup(
-            EnviarcodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EnviarcodigoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(nEnviarcodigo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        EnviarcodigoLayout.setVerticalGroup(
-            EnviarcodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EnviarcodigoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(nEnviarcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(Enviarcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(642, 286, -1, -1));
+        jPanel1.add(Enviarcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, 130, 40));
 
         Codigo.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         Codigo.setText("Codigo");
         jPanel1.add(Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 350, 68, 38));
 
         nNombre.setForeground(new java.awt.Color(204, 204, 204));
-        nNombre.setText("Andrew Jame");
-        nNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nNombreActionPerformed(evt);
+        nNombre.setText("Ingrese su nombre");
+        nNombre.setBorder(null);
+        nNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nNombreMouseClicked(evt);
             }
         });
-        jPanel1.add(nNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 109, 356, 38));
+        nNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nNombreKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nNombreKeyTyped(evt);
+            }
+        });
+        jPanel1.add(nNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 356, 38));
 
         nDni.setForeground(new java.awt.Color(204, 204, 204));
-        nDni.setText("12345678");
-        nDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nDniActionPerformed(evt);
+        nDni.setText("Ingrese su dni");
+        nDni.setBorder(null);
+        nDni.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nDniMouseClicked(evt);
             }
         });
-        jPanel1.add(nDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 56, 356, 38));
+        nDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nDniKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nDniKeyTyped(evt);
+            }
+        });
+        jPanel1.add(nDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 356, 38));
 
         nEmail.setForeground(new java.awt.Color(204, 204, 204));
-        nEmail.setText("salchipapa@gmai.com");
-        jPanel1.add(nEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 286, 356, 38));
-
-        nApellidos.setForeground(new java.awt.Color(204, 204, 204));
-        nApellidos.setText(" Redmayne Dancingclow");
-        nApellidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nApellidosActionPerformed(evt);
+        nEmail.setText("Ingrese su e-mail");
+        nEmail.setBorder(null);
+        nEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nEmailMouseClicked(evt);
             }
         });
-        jPanel1.add(nApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 169, 356, 38));
+        nEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nEmailKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nEmailKeyTyped(evt);
+            }
+        });
+        jPanel1.add(nEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 356, 38));
+
+        nApellidos.setForeground(new java.awt.Color(204, 204, 204));
+        nApellidos.setText("Ingrese sus apellidos");
+        nApellidos.setBorder(null);
+        nApellidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nApellidosMouseClicked(evt);
+            }
+        });
+        nApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nApellidosKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nApellidosKeyTyped(evt);
+            }
+        });
+        jPanel1.add(nApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 356, 38));
 
         nDigito.setForeground(new java.awt.Color(204, 204, 204));
-        nDigito.setText("6");
-        jPanel1.add(nDigito, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 227, 356, 38));
+        nDigito.setText("Ingrese el digito verificador del dni");
+        nDigito.setBorder(null);
+        nDigito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nDigitoMouseClicked(evt);
+            }
+        });
+        nDigito.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nDigitoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nDigitoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(nDigito, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 356, 38));
 
-        nCodigo.setText("1234");
-        jPanel1.add(nCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 352, 356, 38));
+        nCodigo.setForeground(new java.awt.Color(204, 204, 204));
+        nCodigo.setText("Ingrese su codigo enviado a su e-mail");
+        nCodigo.setBorder(null);
+        nCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nCodigoMouseClicked(evt);
+            }
+        });
+        nCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nCodigoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nCodigoKeyTyped(evt);
+            }
+        });
+        jPanel1.add(nCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, 356, 38));
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 360, 10));
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 360, 10));
+
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 360, 10));
+
+        jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 360, 10));
+
+        jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 360, 10));
+
+        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 360, 10));
+
+        header1.setBackground(new java.awt.Color(255, 255, 255));
+        header1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                header1MouseDragged(evt);
+            }
+        });
+        header1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                header1MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout header1Layout = new javax.swing.GroupLayout(header1);
+        header1.setLayout(header1Layout);
+        header1Layout.setHorizontalGroup(
+            header1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+        );
+        header1Layout.setVerticalGroup(
+            header1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(header1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 810, 40));
+
+        Guardar.setBackground(new java.awt.Color(51, 153, 0));
+        Guardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GuardarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                GuardarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                GuardarMouseExited(evt);
+            }
+        });
+        Guardar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Guardartxt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        Guardartxt.setForeground(new java.awt.Color(255, 255, 255));
+        Guardartxt.setText("Guardar");
+        Guardar.add(Guardartxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 6, -1, 24));
+
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 480, 130, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 570));
 
@@ -324,7 +457,7 @@ public class Registrar_clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_backTxtMouseExited
 
     private void backTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backTxtMouseEntered
-        backBtn.setBackground(Color.red);
+        backBtn.setBackground(new Color(51,153,0));
         backTxt.setForeground(Color.white);
     }//GEN-LAST:event_backTxtMouseEntered
 
@@ -363,28 +496,21 @@ public class Registrar_clientes extends javax.swing.JFrame {
 
     private void EnviarcodigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnviarcodigoMouseClicked
         String mcodigo="";
-        try{
-            mcodigo="";
+
             //Thread.sleep(1000);
             
-            int j=5;
+        
             int aleatorio;
             for(int i=0;i<4;i++){
                 aleatorio=(int) (Math.random()*10);
                 mcodigo+=Integer.toString(aleatorio);
             }
-            System.out.println(nEmail.getText());
-            sendmail m= new sendmail(nEmail.getText(),"Código de verificación ",mcodigo);
-
-            Thread.sleep(1000);
-                m.mail();
-            nEnviarcodigo.setText("Enviar codigo ("+j+")");
-        }
-        catch(InterruptedException e){
-            System.out.println(e.getMessage());
-        }
+            Sendmail m= new Sendmail(nEmail.getText(),"Código de verificación ",mcodigo);
+            m.mail();
+        this.Correo=nEmail.getText();
         this.codigo=mcodigo;
-        
+        JOptionPane.showMessageDialog(null,"Codigo enviado, revise su correo",
+                    "Enviar Codigo",JOptionPane.INFORMATION_MESSAGE);
        
     }//GEN-LAST:event_EnviarcodigoMouseClicked
 
@@ -396,22 +522,330 @@ public class Registrar_clientes extends javax.swing.JFrame {
         Enviarcodigo.setBackground(new Color(51,153,0));
     }//GEN-LAST:event_EnviarcodigoMouseExited
 
-    private void nDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nDniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nDniActionPerformed
+    private void nDniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nDniMouseClicked
+        nDni();
+    }//GEN-LAST:event_nDniMouseClicked
 
-    private void nNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nNombreActionPerformed
+    private void nDniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nDniKeyPressed
+        nDni();
+    }//GEN-LAST:event_nDniKeyPressed
 
-    private void nApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nApellidosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nApellidosActionPerformed
+    private void nDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nDniKeyTyped
+        nDni();
+    }//GEN-LAST:event_nDniKeyTyped
+
+    private void nNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nNombreKeyPressed
+        nNombre();
+    }//GEN-LAST:event_nNombreKeyPressed
+
+    private void nNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nNombreKeyTyped
+        nNombre();
+    }//GEN-LAST:event_nNombreKeyTyped
+
+    private void nNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nNombreMouseClicked
+        nNombre();
+    }//GEN-LAST:event_nNombreMouseClicked
+
+    private void header1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_header1MouseDragged
+        int x = evt.getXOnScreen()-60;
+        int y = evt.getYOnScreen();
+        this.setLocation(x  - xMouse, y - yMouse);
+    }//GEN-LAST:event_header1MouseDragged
+
+    private void header1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_header1MousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_header1MousePressed
+
+    private void nApellidosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nApellidosKeyPressed
+        nApellidos();
+    }//GEN-LAST:event_nApellidosKeyPressed
+
+    private void nApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nApellidosKeyTyped
+        nApellidos();
+    }//GEN-LAST:event_nApellidosKeyTyped
+
+    private void nApellidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nApellidosMouseClicked
+        nApellidos();
+    }//GEN-LAST:event_nApellidosMouseClicked
+
+    private void nDigitoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nDigitoKeyPressed
+        nDigito();
+    }//GEN-LAST:event_nDigitoKeyPressed
+
+    private void nDigitoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nDigitoKeyTyped
+        nDigito();
+    }//GEN-LAST:event_nDigitoKeyTyped
+
+    private void nDigitoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nDigitoMouseClicked
+        nDigito();
+    }//GEN-LAST:event_nDigitoMouseClicked
+
+    private void nEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nEmailKeyPressed
+        nEmail();
+    }//GEN-LAST:event_nEmailKeyPressed
+
+    private void nEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nEmailKeyTyped
+        nEmail();
+    }//GEN-LAST:event_nEmailKeyTyped
+
+    private void nEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nEmailMouseClicked
+        nEmail();
+    }//GEN-LAST:event_nEmailMouseClicked
+
+    private void nCodigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nCodigoKeyPressed
+        nCodigo();
+    }//GEN-LAST:event_nCodigoKeyPressed
+
+    private void nCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nCodigoKeyTyped
+        nCodigo();
+    }//GEN-LAST:event_nCodigoKeyTyped
+
+    private void nCodigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nCodigoMouseClicked
+        nCodigo();
+    }//GEN-LAST:event_nCodigoMouseClicked
+
+    private void GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseClicked
+
+        int dni=0,c_verificador=0,codigo=0;
+        try{
+            if(8==nDni.getText().length()){
+                dni=Integer.parseInt(nDni.getText());
+            }
+            else throw new NumberFormatException();
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Ingrese 8 numeros en el dni",
+                    "ERROR",JOptionPane.ERROR_MESSAGE);
+            nDni.setText("");
+        }
+        try{
+            c_verificador=Integer.parseInt(nDigito.getText());
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Ingrese numeros el digito",
+                    "ERROR",JOptionPane.ERROR_MESSAGE);
+            nDigito.setText("");
+        }
+        try{
+            codigo=Integer.parseInt(nCodigo.getText());
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Ingrese numeros en el codigo",
+                    "ERROR",JOptionPane.ERROR_MESSAGE);
+            nCodigo.setText("");
+        }
+        this.codigo="1";
+        if(this.codigo!=null){
+            PersonaNatural p=new PersonaNatural(dni);
+            p.Hallarcodigoverificador();
+            p.Hallar_datos();
+       
+            if((p.getC_verificador()!=null && p.getApellidos()!=null) && p.getNombre()!=null){
+               if(p.getC_verificador().equals(nDigito.getText()) && p.getApellidos().equalsIgnoreCase(nApellidos.getText())
+               &&p.getNombre().equalsIgnoreCase(nNombre.getText()) && this.codigo.equals(nCodigo.getText())
+                       /*&& nEmail.getText().equals(this.Correo)*/){
+                        p.setCorreo(this.Correo);
+                        if(SerializarObjeto.serializarObjeto(nArchivo,p,PersonaNatural.class)){
+                            JOptionPane.showMessageDialog(null,"Registro de cliente terminado con exito",
+                        "Listo",JOptionPane.INFORMATION_MESSAGE);
+                        }else {
+                            JOptionPane.showMessageDialog(null,"Error en escritura",
+                        "Listo",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    
+                    this.codigo=null;
+               }else{
+                   JOptionPane.showMessageDialog(null,"Error datos no conciden, intente de nuevo",
+                        "ERROR",JOptionPane.ERROR_MESSAGE);
+               }
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Error en obtener datos, Intente mas tarde",
+                        "ERROR",JOptionPane.ERROR_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Haga click en enviar codigo, luego ingrese el codigo que se le envia "
+                    + "a su correo","Verifcar codigo",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_GuardarMouseClicked
+
+    private void GuardarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseEntered
+        Guardar.setBackground(new Color(67, 180, 10));
+    }//GEN-LAST:event_GuardarMouseEntered
+
+    private void GuardarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseExited
+        Guardar.setBackground(new Color(51,153,0));
+    }//GEN-LAST:event_GuardarMouseExited
                                    
 
-    /**
-     * @param args the command line arguments
-     */
+    private void nDni(){
+        if (String.valueOf(nDni.getText()).equals("Ingrese su dni")) {
+            nDni.setText("");
+            nDni.setForeground(Color.black);
+        }
+        if (nNombre.getText().isEmpty()) {
+            nNombre.setText("Ingrese su nombre");
+            nNombre.setForeground(Color.gray);
+        }
+        if (nApellidos.getText().isEmpty()) {
+            nApellidos.setText("Ingrese sus apellidos");
+            nApellidos.setForeground(Color.gray);
+        }
+        if (nDigito.getText().isEmpty()) {
+            nDigito.setText("Ingrese el digito verificador del dni");
+            nDigito.setForeground(Color.gray);
+        }
+        if (nEmail.getText().isEmpty()) {
+            nEmail.setText("Ingrese su e-mail");
+            nEmail.setForeground(Color.gray);
+        }
+        if (nCodigo.getText().isEmpty()) {
+            nCodigo.setText("Ingrese su codigo enviado a su e-mail");
+            nCodigo.setForeground(Color.gray);
+        }
+        
+    }
+    
+    private void nNombre(){
+        if (String.valueOf(nNombre.getText()).equals("Ingrese su nombre")) {
+            nNombre.setText("");
+            nNombre.setForeground(Color.black);
+        }
+        if (nDni.getText().isEmpty()) {
+            nDni.setText("Ingrese su dni");
+            nDni.setForeground(Color.gray);
+        }
+        if (nApellidos.getText().isEmpty()) {
+            nApellidos.setText("Ingrese sus apellidos");
+            nApellidos.setForeground(Color.gray);
+        }
+        if (nDigito.getText().isEmpty()) {
+            nDigito.setText("Ingrese el digito verificador del dni");
+            nDigito.setForeground(Color.gray);
+        }
+        if (nEmail.getText().isEmpty()) {
+            nEmail.setText("Ingrese su e-mail");
+            nEmail.setForeground(Color.gray);
+        }
+        if (nCodigo.getText().isEmpty()) {
+            nCodigo.setText("Ingrese su codigo enviado a su e-mail");
+            nCodigo.setForeground(Color.gray);
+        }
+        
+    }
+    
+    private void nApellidos(){
+        if (String.valueOf(nApellidos.getText()).equals("Ingrese sus apellidos")) {
+            nApellidos.setText("");
+            nApellidos.setForeground(Color.black);
+        }
+        if (nDni.getText().isEmpty()) {
+            nDni.setText("Ingrese su dni");
+            nDni.setForeground(Color.gray);
+        }
+        if (nNombre.getText().isEmpty()) {
+            nNombre.setText("Ingrese su nombre");
+            nNombre.setForeground(Color.gray);
+        }
+        if (nDigito.getText().isEmpty()) {
+            nDigito.setText("Ingrese el digito verificador del dni");
+            nDigito.setForeground(Color.gray);
+        }
+        if (nEmail.getText().isEmpty()) {
+            nEmail.setText("Ingrese su e-mail");
+            nEmail.setForeground(Color.gray);
+        }
+        if (nCodigo.getText().isEmpty()) {
+            nCodigo.setText("Ingrese su codigo enviado a su e-mail");
+            nCodigo.setForeground(Color.gray);
+        }
+        
+    }
+    
+    private void nDigito(){
+        if (String.valueOf(nDigito.getText()).equals("Ingrese el digito verificador del dni")) {
+            nDigito.setText("");
+            nDigito.setForeground(Color.black);
+        }
+        if (nDni.getText().isEmpty()) {
+            nDni.setText("Ingrese su dni");
+            nDni.setForeground(Color.gray);
+        }
+        if (nNombre.getText().isEmpty()) {
+            nNombre.setText("Ingrese su nombre");
+            nNombre.setForeground(Color.gray);
+        }
+        if (nApellidos.getText().isEmpty()) {
+            nApellidos.setText("Ingrese sus apellidos");
+            nApellidos.setForeground(Color.gray);
+        }
+        if (nEmail.getText().isEmpty()) {
+            nEmail.setText("Ingrese su e-mail");
+            nEmail.setForeground(Color.gray);
+        }
+        if (nCodigo.getText().isEmpty()) {
+            nCodigo.setText("Ingrese su codigo enviado a su e-mail");
+            nCodigo.setForeground(Color.gray);
+        }
+        
+    }
+    
+    private void nEmail(){
+        if (String.valueOf(nEmail.getText()).equals("Ingrese su e-mail")) {
+            nEmail.setText("");
+            nEmail.setForeground(Color.black);
+        }
+        if (nDni.getText().isEmpty()) {
+            nDni.setText("Ingrese su dni");
+            nDni.setForeground(Color.gray);
+        }
+        if (nNombre.getText().isEmpty()) {
+            nNombre.setText("Ingrese su nombre");
+            nNombre.setForeground(Color.gray);
+        }
+        if (nApellidos.getText().isEmpty()) {
+            nApellidos.setText("Ingrese sus apellidos");
+            nApellidos.setForeground(Color.gray);
+        }
+        if (nDigito.getText().isEmpty()) {
+            nDigito.setText("Ingrese el digito verificador del dni");
+            nDigito.setForeground(Color.gray);
+        }
+        if (nCodigo.getText().isEmpty()) {
+            nCodigo.setText("Ingrese su codigo enviado a su e-mail");
+            nCodigo.setForeground(Color.gray);
+        }
+    }   
+    
+    private void nCodigo(){
+        if (String.valueOf(nCodigo.getText()).equals("Ingrese su codigo enviado a su e-mail")) {
+            nCodigo.setText("");
+            nCodigo.setForeground(Color.black);
+        }
+        if (nDni.getText().isEmpty()) {
+            nDni.setText("Ingrese su dni");
+            nDni.setForeground(Color.gray);
+        }
+        if (nNombre.getText().isEmpty()) {
+            nNombre.setText("Ingrese su nombre");
+            nNombre.setForeground(Color.gray);
+        }
+        if (nApellidos.getText().isEmpty()) {
+            nApellidos.setText("Ingrese sus apellidos");
+            nApellidos.setForeground(Color.gray);
+        }
+        if (nDigito.getText().isEmpty()) {
+            nDigito.setText("Ingrese el digito verificador del dni");
+            nDigito.setForeground(Color.gray);
+        }
+        if (nEmail.getText().isEmpty()) {
+            nEmail.setText("Ingrese su e-mail");
+            nEmail.setForeground(Color.gray);
+        }
+    }  
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -451,16 +885,25 @@ public class Registrar_clientes extends javax.swing.JFrame {
     private javax.swing.JLabel Dni;
     private javax.swing.JLabel Email;
     private javax.swing.JPanel Enviarcodigo;
+    private javax.swing.JPanel Guardar;
+    private javax.swing.JLabel Guardartxt;
     private javax.swing.JLabel Nombre;
     private javax.swing.JPanel backBtn;
     private javax.swing.JLabel backTxt;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JPanel header;
+    private javax.swing.JPanel header1;
     private javax.swing.JPanel hideBtn;
     private javax.swing.JLabel hideTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField nApellidos;
     private javax.swing.JTextField nCodigo;
     private javax.swing.JTextField nDigito;

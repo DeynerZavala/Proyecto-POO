@@ -11,17 +11,28 @@ package proyecto;
 public abstract class Vehiculo {
     protected String CodigoPlaca;
     protected String Marca;
+    protected String AñodeFabricacion;
+    protected String Transmicion;
+    protected String Combustible;
+    protected int PrecioDeAlquilerxdia;
+    protected String Seguro;
     protected int Precio;
     protected String Modelo;
 
-    public Vehiculo(String CodigoPlaca, String Marca, int Precio, String Modelo) {
+    public Vehiculo(String CodigoPlaca, String Marca, String AñodeFabricacion, String Transmicion, String Combustible, int PrecioDeAlquilerxdia, String Seguro, int Precio, String Modelo) {
         this.CodigoPlaca = CodigoPlaca;
         this.Marca = Marca;
+        this.AñodeFabricacion = AñodeFabricacion;
+        this.Transmicion = Transmicion;
+        this.Combustible = Combustible;
+        this.PrecioDeAlquilerxdia = PrecioDeAlquilerxdia;
+        this.Seguro = Seguro;
         this.Precio = Precio;
         this.Modelo = Modelo;
     }
     
-     public abstract void MostrarCaracteristicas();
+    
+    public abstract void MostrarCaracteristicas();
 
 
     public String getCodigoPlaca() {

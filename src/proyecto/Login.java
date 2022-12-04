@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Login extends javax.swing.JFrame {
-    private String NArchivo="usuario.txt";
+    private final String NArchivo="usuario.txt";
     private Scanner sc;
     private int intentos;
     private String user,pwd;
@@ -43,6 +43,8 @@ public class Login extends javax.swing.JFrame {
         exitTxt = new javax.swing.JLabel();
         hideBtn = new javax.swing.JPanel();
         hideTxt = new javax.swing.JLabel();
+        backBtn = new javax.swing.JPanel();
+        backTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -68,14 +70,14 @@ public class Login extends javax.swing.JFrame {
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 890, Short.MAX_VALUE)
+            .addGap(0, 840, Short.MAX_VALUE)
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 40));
+        bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 840, 40));
 
         favicon.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         favicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/logo.png"))); // NOI18N
@@ -85,11 +87,10 @@ public class Login extends javax.swing.JFrame {
         title.setText("INICIAR SESIÓN");
         bg.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        userLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        userLabel.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         userLabel.setText("USUARIO");
         bg.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
-        userTxt.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         userTxt.setForeground(new java.awt.Color(204, 204, 204));
         userTxt.setText("Ingrese su nombre de usuario");
         userTxt.setBorder(null);
@@ -108,7 +109,7 @@ public class Login extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 410, 20));
 
-        passLabel.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
+        passLabel.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         passLabel.setText("CONTRASEÑA");
         bg.add(passLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
@@ -136,7 +137,7 @@ public class Login extends javax.swing.JFrame {
 
         loginBtn.setBackground(new java.awt.Color(51, 153, 0));
 
-        loginBtnTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
+        loginBtnTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         loginBtnTxt.setForeground(new java.awt.Color(255, 255, 255));
         loginBtnTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loginBtnTxt.setText("ENTRAR");
@@ -172,7 +173,7 @@ public class Login extends javax.swing.JFrame {
 
         exitBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        exitTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         exitTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exitTxt.setText("X");
         exitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -208,9 +209,9 @@ public class Login extends javax.swing.JFrame {
 
         hideBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        hideTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        hideTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         hideTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hideTxt.setText("━");
+        hideTxt.setText("—");
         hideTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hideTxt.setPreferredSize(new java.awt.Dimension(40, 40));
         hideTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -242,6 +243,42 @@ public class Login extends javax.swing.JFrame {
 
         bg.add(hideBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(902, 0, 40, 40));
 
+        backBtn.setBackground(new java.awt.Color(255, 255, 255));
+
+        backTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        backTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        backTxt.setText("←");
+        backTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        backTxt.setPreferredSize(new java.awt.Dimension(40, 40));
+        backTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout backBtnLayout = new javax.swing.GroupLayout(backBtn);
+        backBtn.setLayout(backBtnLayout);
+        backBtnLayout.setHorizontalGroup(
+            backBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(backTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        backBtnLayout.setVerticalGroup(
+            backBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backBtnLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(backTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        bg.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -262,13 +299,16 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_headerMousePressed
 
     private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
-        int x = evt.getXOnScreen();
+        int x = evt.getXOnScreen()-60;
         int y = evt.getYOnScreen();
         this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headerMouseDragged
 
     private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
-        System.exit(0);
+        //0 si  1 no
+        if(0==Mensaje.Preguntar("Estas a punto de salir ¿Estas Seguro?", "¿Desea Salir?")){
+            System.exit(0);
+        }
     }//GEN-LAST:event_exitTxtMouseClicked
 
     private void exitTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseEntered
@@ -378,6 +418,21 @@ public class Login extends javax.swing.JFrame {
     private void userTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userTxtKeyTyped
        user();
     }//GEN-LAST:event_userTxtKeyTyped
+
+    private void backTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backTxtMouseClicked
+        dispose();
+        new Inicio().setVisible(true);
+    }//GEN-LAST:event_backTxtMouseClicked
+
+    private void backTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backTxtMouseEntered
+        backBtn.setBackground(new Color(51,153,0));
+        backTxt.setForeground(Color.white);
+    }//GEN-LAST:event_backTxtMouseEntered
+
+    private void backTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backTxtMouseExited
+        backBtn.setBackground(Color.white);
+        backTxt.setForeground(Color.black);
+    }//GEN-LAST:event_backTxtMouseExited
     private void pwd(){
         if (String.valueOf(passTxt.getPassword()).equals("********")) {
             passTxt.setText("");
@@ -436,6 +491,8 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel backBtn;
+    private javax.swing.JLabel backTxt;
     private javax.swing.JPanel bg;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;

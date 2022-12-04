@@ -1,95 +1,87 @@
+package proyecto;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyecto;
 
 /**
  *
  * @author USUARIO
  */
-public class VehiculoDeCarga extends Vehiculo{
-    protected float CapacidadDeCarga;
-    protected float Dimensiones;
-    protected float Toneladas;
+public class VehiculoBus extends VehiculoDeTransporte{
+    private int NroAsientos;
+    private boolean AireAcondicionado;
+    private boolean banio;
 
-    public VehiculoDeCarga(float CapacidadDeCarga, float Dimensiones, float Toneladas, String CodigoPlaca, String Marca, String AñodeFabricacion, String Transmicion, String Combustible, int PrecioDeAlquilerxdia, String Seguro, int Precio, String Modelo) {
-        super(CodigoPlaca, Marca, AñodeFabricacion, Transmicion, Combustible, PrecioDeAlquilerxdia, Seguro, Precio, Modelo);
-        this.CapacidadDeCarga = CapacidadDeCarga;
-        this.Dimensiones = Dimensiones;
-        this.Toneladas = Toneladas;
+    public VehiculoBus(int NroAsientos, boolean AireAcondicionado, boolean banio, String color, String CodigoPlaca, String Marca, String AñodeFabricacion, String Transmicion, String Combustible, int PrecioDeAlquilerxdia, String Seguro, int Precio, String Modelo) {
+        super(color, CodigoPlaca, Marca, AñodeFabricacion, Transmicion, Combustible, PrecioDeAlquilerxdia, Seguro, Precio, Modelo);
+        this.NroAsientos = NroAsientos;
+        this.AireAcondicionado = AireAcondicionado;
+        this.banio = banio;
     }
 
-    
     @Override
-    public void MostrarCaracteristicas(){
-            
+    public String getColor() {
+        return color;
     }
 
-    public float getCapacidadDeCarga() {
-        return CapacidadDeCarga;
+    @Override
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public void setCapacidadDeCarga(float CapacidadDeCarga) {
-        this.CapacidadDeCarga = CapacidadDeCarga;
-    }
-
-    public float getDimensiones() {
-        return Dimensiones;
-    }
-
-    public void setDimensiones(float Dimensiones) {
-        this.Dimensiones = Dimensiones;
-    }
-
-    public float getToneladas() {
-        return Toneladas;
-    }
-
-    public void setToneladas(float Toneladas) {
-        this.Toneladas = Toneladas;
-    }
-
+    @Override
     public String getCodigoPlaca() {
         return CodigoPlaca;
     }
 
+    @Override
     public void setCodigoPlaca(String CodigoPlaca) {
         this.CodigoPlaca = CodigoPlaca;
     }
 
+    @Override
     public String getMarca() {
         return Marca;
     }
 
+    @Override
     public void setMarca(String Marca) {
         this.Marca = Marca;
     }
 
+    @Override
     public String getAñodeFabricacion() {
         return AñodeFabricacion;
     }
 
+    @Override
     public void setAñodeFabricacion(String AñodeFabricacion) {
         this.AñodeFabricacion = AñodeFabricacion;
     }
 
+    @Override
     public String getTransmicion() {
         return Transmicion;
     }
 
+    @Override
     public void setTransmicion(String Transmicion) {
         this.Transmicion = Transmicion;
     }
 
+    @Override
     public String getCombustible() {
         return Combustible;
     }
 
+    @Override
     public void setCombustible(String Combustible) {
         this.Combustible = Combustible;
     }
 
+    @Override
     public int getPrecioDeAlquilerxdia() {
         return PrecioDeAlquilerxdia;
     }
@@ -120,6 +112,32 @@ public class VehiculoDeCarga extends Vehiculo{
 
     public void setModelo(String Modelo) {
         this.Modelo = Modelo;
+    }
+
+ 
+
+    public int getNroAsientos() {
+        return NroAsientos;
+    }
+
+    public void setNroAsientos(int NroAsientos) {
+        this.NroAsientos = NroAsientos;
+    }
+
+    public boolean isAireAcondicionado() {
+        return AireAcondicionado;
+    }
+
+    public void setAireAcondicionado(boolean AireAcondicionado) {
+        this.AireAcondicionado = AireAcondicionado;
+    }
+
+    public boolean isBanio() {
+        return banio;
+    }
+
+    public void setBanio(boolean banio) {
+        this.banio = banio;
     }
     
 }

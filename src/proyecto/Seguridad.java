@@ -12,6 +12,10 @@ import javax.swing.JOptionPane;
  */
 public class Seguridad {
     String res;
+
+    public Seguridad() {
+        this.res ="";
+    }
     
     public boolean validadUsuario(String usuarios[], String user, String pwd, int intentos){
         boolean encontrado=false;

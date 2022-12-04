@@ -9,14 +9,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
-import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import org.json.JSONObject;
 
 
@@ -24,22 +21,11 @@ import org.json.JSONObject;
  *
  * @author USUARIO
  */
-public class PersonaNatural implements Serializable{
+public class Dni {
     private String dni;
     private String c_verificador;
-    private String Nombre;
-    private String Apellidos;
-    private String Correo;
-    //private Date Nacimiento;
-    
-
-    public PersonaNatural(int dni) {
-        this.dni = Integer.toString(dni);
-        this.c_verificador=null;
-        this.Nombre=null;
-        this.Apellidos=null;
-        this.Correo=null;
-        //this.Nacimiento=null;
+    public Dni(String dni) {
+        this.dni = dni;
     }
     public void Hallar_datos(){
         String enlace="http://sdv.midis.gob.pe/Sis_IDM_Admin/Persona/GetRENIEC";
@@ -66,17 +52,23 @@ public class PersonaNatural implements Serializable{
             //System.out.println(response); // la respuesta del servidor
             JSONObject myresponse = new JSONObject(response.toString());
             //luego de usar json
-            if(0==myresponse.getInt("biIdPersona")){
-                JOptionPane.showMessageDialog(null,"Dni invalido",
-                    "ERROR",JOptionPane.ERROR_MESSAGE);
-            }
-            else{
-                //System.out.println("Nombre: "+myresponse.getString("vNombres"));
-                //System.out.println("Apellido Paterno: "+myresponse.getString("vApePaterno"));
-                //System.out.println("Apellido Materno: " +myresponse.getString("vApeMaterno"));
-                this.Nombre=myresponse.getString("vNombres");
-                this.Apellidos=myresponse.getString("vApePaterno")+" "+myresponse.getString("vApeMaterno");
-            }
+            System.out.println("Nombre: "+myresponse.getString("vNombres"));
+            System.out.println("Apellido Paterno: "+myresponse.getString("vApePaterno"));
+            System.out.println("Apellido Materno: " +myresponse.getString("vApeMaterno"));
+            System.out.println("DNI: " +myresponse.getString("vNroDocumento"));
+            System.out.println("Fecha de nacimiento:" +myresponse.getString("dtFecNacimiento"));
+            /*
+            System.out.println("Departamento: "+Departamento(myresponse.getString("vCodDepartamento")));
+            System.out.println("Provincia: "+myresponse.getString("vCodProvincia"));
+            System.out.println("Distrito: "+Departamento(myresponse.getString("vCodDistrito")));
+            System.out.println("Direccion: "+myresponse.getString("vDireccion"));
+            
+            System.out.println("Telefono: "+myresponse.getString("vTelefono"));
+            System.out.println("Celular: "+myresponse.getString("vCelular"));
+            System.out.println("Correo Electronico: "+myresponse.getString("vCorreoElectronico"));
+            */
+            
+            
             
         }
         catch(MalformedURLException ex){
@@ -99,19 +91,41 @@ public class PersonaNatural implements Serializable{
         else{
             complemento=11-resto;
         }
-        this.c_verificador="";
         this.c_verificador=Integer.toString(complemento);
         this.c_verificador=String.valueOf(this.c_verificador.charAt(0));
-        //System.out.println(this.c_verificador);
-    }
-    
-    public void mostrar(){
-        System.out.println(this.dni);
         System.out.println(this.c_verificador);
-        System.out.println(this.Nombre);
-        System.out.println(this.Apellidos);
     }
     
+    public String Departamento(String i){
+        switch(i){
+            case "01": return "Amazonas";
+            case "02": return "Ancash";
+            case "03": return "Apurímac";
+            case "04": return "Arequipa";
+            case "05": return "Ayacucho";
+            case "06": return "Cajamarca";
+            case "07": return "Cusco";
+            case "08": return "Huancavelica";
+            case "09": return "Huánuco";
+            case "10": return "Ica";
+            case "11": return "Junín";
+            case "12": return "La Libertad";
+            case "13": return "Lambayeque";
+            case "14": return "Lima";
+            case "15": return "Loreto";
+            case "16": return "Madre de Dios";
+            case "17": return "Moquegua";
+            case "18": return "Pasco";
+            case "19": return "Piura";
+            case "20": return "Puno";
+            case "21": return "San Martín";
+            case "22": return "Tacna";
+            case "23": return "Tumbes";
+            case "24": return "Ucayali";
+            case "25": return "n";
+            default: return null;
+        }
+    }
     public String getDni() {
         return dni;
     }
@@ -127,39 +141,5 @@ public class PersonaNatural implements Serializable{
     public void setC_verificador(String c_verificador) {
         this.c_verificador = c_verificador;
     }
-
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
-
-    public String getApellidos() {
-        return Apellidos;
-    }
-
-    public void setApellidos(String Apellidos) {
-        this.Apellidos = Apellidos;
-    }
     
-/*
-   public Date getNacimiento() {
-        return Nacimiento;
-    } 
-
-    public void setNacimiento(Date Nacimiento) {
-        this.Nacimiento = Nacimiento;
-    }
-    
-    */
-
-    public String getCorreo() {
-        return Correo;
-    }
-
-    public void setCorreo(String Correo) {
-        this.Correo = Correo;
-    }
 }

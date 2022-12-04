@@ -5,28 +5,22 @@
 package proyecto;
 
 import java.awt.Color;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
+import java.util.Stack;
 import javax.swing.JOptionPane;
-
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 /**
  *
  * @author USUARIO
  */
-public class SubirCarros extends javax.swing.JFrame {
-    
-    JFileChooser seleccionar = new JFileChooser();
-    File archivo;
-    byte [] imagen;
-    FileInputStream entrada;
-    FileOutputStream salida;
+public class MostrarClientes extends javax.swing.JFrame {
+    private String nArchivo="PersonaNatural.dat";
     private int xMouse;
     private int yMouse;
-    public SubirCarros() {
+   
+    public MostrarClientes()   {
         initComponents();
+        TablaDeClientes();
     }
 
     /**
@@ -38,12 +32,9 @@ public class SubirCarros extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        Carropng = new javax.swing.JLabel();
-        SubircarroBtn = new javax.swing.JPanel();
-        SubirCarroTxt = new javax.swing.JLabel();
-        GuardarBtn = new javax.swing.JPanel();
-        GuardarTxt = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaDeClientes = new javax.swing.JTable();
         header = new javax.swing.JPanel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
@@ -53,86 +44,35 @@ public class SubirCarros extends javax.swing.JFrame {
         backTxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(980, 570));
         setResizable(false);
-        setSize(new java.awt.Dimension(980, 570));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(Carropng, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 410, 180, 120));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        SubircarroBtn.setBackground(new java.awt.Color(51, 153, 0));
-
-        SubirCarroTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        SubirCarroTxt.setForeground(new java.awt.Color(255, 255, 255));
-        SubirCarroTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        SubirCarroTxt.setText("Cargar imagen");
-        SubirCarroTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        SubirCarroTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SubirCarroTxtMouseClicked(evt);
+        TablaDeClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "1", "2", "3", "4"
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SubirCarroTxtMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                SubirCarroTxtMouseExited(evt);
-            }
-        });
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
 
-        javax.swing.GroupLayout SubircarroBtnLayout = new javax.swing.GroupLayout(SubircarroBtn);
-        SubircarroBtn.setLayout(SubircarroBtnLayout);
-        SubircarroBtnLayout.setHorizontalGroup(
-            SubircarroBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubircarroBtnLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(SubirCarroTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        SubircarroBtnLayout.setVerticalGroup(
-            SubircarroBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubircarroBtnLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(SubirCarroTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel2.add(SubircarroBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 130, 40));
-
-        GuardarBtn.setBackground(new java.awt.Color(51, 153, 0));
-
-        GuardarTxt.setFont(new java.awt.Font("Roboto Condensed", 1, 14)); // NOI18N
-        GuardarTxt.setForeground(new java.awt.Color(255, 255, 255));
-        GuardarTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        GuardarTxt.setText("Guardar imagen");
-        GuardarTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        GuardarTxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                GuardarTxtMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                GuardarTxtMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                GuardarTxtMouseExited(evt);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
             }
         });
+        jScrollPane1.setViewportView(TablaDeClientes);
 
-        javax.swing.GroupLayout GuardarBtnLayout = new javax.swing.GroupLayout(GuardarBtn);
-        GuardarBtn.setLayout(GuardarBtnLayout);
-        GuardarBtnLayout.setHorizontalGroup(
-            GuardarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GuardarBtnLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(GuardarTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        GuardarBtnLayout.setVerticalGroup(
-            GuardarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, GuardarBtnLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(GuardarTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel2.add(GuardarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 500, 130, 40));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 880, 490));
 
         header.setBackground(new java.awt.Color(255, 255, 255));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -150,18 +90,18 @@ public class SubirCarros extends javax.swing.JFrame {
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
+            .addGap(0, 840, Short.MAX_VALUE)
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 40, Short.MAX_VALUE)
         );
 
-        jPanel2.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 810, 40));
+        jPanel1.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 840, 40));
 
         exitBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        exitTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         exitTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exitTxt.setText("X");
         exitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -193,13 +133,13 @@ public class SubirCarros extends javax.swing.JFrame {
                 .addComponent(exitTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(exitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, 40));
+        jPanel1.add(exitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 0, -1, 40));
 
         hideBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        hideTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        hideTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         hideTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hideTxt.setText("━");
+        hideTxt.setText("—");
         hideTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         hideTxt.setPreferredSize(new java.awt.Dimension(40, 40));
         hideTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -229,13 +169,13 @@ public class SubirCarros extends javax.swing.JFrame {
                 .addComponent(hideTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(hideBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(902, 0, 40, 40));
+        jPanel1.add(hideBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(902, 0, 40, 40));
 
         backBtn.setBackground(new java.awt.Color(255, 255, 255));
 
-        backTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        backTxt.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         backTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        backTxt.setText("\t←");
+        backTxt.setText("←");
         backTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         backTxt.setPreferredSize(new java.awt.Dimension(40, 40));
         backTxt.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -265,70 +205,26 @@ public class SubirCarros extends javax.swing.JFrame {
                 .addComponent(backTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel2.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(backBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SubirCarroTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubirCarroTxtMouseClicked
-
-        if(this.seleccionar.showDialog(null,"Abrir")==JFileChooser.APPROVE_OPTION){
-            this.archivo=this.seleccionar.getSelectedFile();
-            if(this.archivo.canRead()){
-                if(this.archivo.getName().endsWith("png")||this.archivo.getName().endsWith("PNG")){//subir imagen en png
-                    this.imagen=AbrirArchivo(this.archivo);
-                    Carropng.setIcon(new ImageIcon(this.imagen));
-                }
-                else{
-                    JOptionPane.showMessageDialog(null,"Archivo no cargado");
-                }
-            }
-        }
-
-    }//GEN-LAST:event_SubirCarroTxtMouseClicked
-
-    private void SubirCarroTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubirCarroTxtMouseEntered
-        SubircarroBtn.setBackground(new Color(67, 180, 10));
-    }//GEN-LAST:event_SubirCarroTxtMouseEntered
-
-    private void SubirCarroTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubirCarroTxtMouseExited
-        SubircarroBtn.setBackground(new Color(51,153,0));
-    }//GEN-LAST:event_SubirCarroTxtMouseExited
-
-    private void GuardarTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarTxtMouseClicked
-        String direccion=null;
-        String respuesta=GuardarArchivo(direccion,this.imagen);
-        if(respuesta!=null){
-            JOptionPane.showMessageDialog(null,respuesta);
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Archivo no guardado");
-        }
-    }//GEN-LAST:event_GuardarTxtMouseClicked
-
-    private void GuardarTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarTxtMouseEntered
-        GuardarBtn.setBackground(new Color(67, 180, 10));
-    }//GEN-LAST:event_GuardarTxtMouseEntered
-
-    private void GuardarTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarTxtMouseExited
-        GuardarBtn.setBackground(new Color(51,153,0));
-    }//GEN-LAST:event_GuardarTxtMouseExited
-
     private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
         int x = evt.getXOnScreen()-60;
         int y = evt.getYOnScreen();
-        this.setLocation(x  - xMouse, y - yMouse);
+        this.setLocation(x - xMouse, y - yMouse);
     }//GEN-LAST:event_headerMouseDragged
 
     private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
@@ -337,7 +233,10 @@ public class SubirCarros extends javax.swing.JFrame {
     }//GEN-LAST:event_headerMousePressed
 
     private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
-        System.exit(0);
+        //0 si  1 no
+        if(0==Mensaje.Preguntar("Estas a punto de salir ¿Estas Seguro?", "¿Desea Salir?")){
+            System.exit(0);
+        }
     }//GEN-LAST:event_exitTxtMouseClicked
 
     private void exitTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseEntered
@@ -366,11 +265,11 @@ public class SubirCarros extends javax.swing.JFrame {
 
     private void backTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backTxtMouseClicked
         dispose();
-        new MenuAdministrador().setVisible(true);
+        new Inicio().setVisible(true);
     }//GEN-LAST:event_backTxtMouseClicked
 
     private void backTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backTxtMouseEntered
-        backBtn.setBackground(Color.red);
+        backBtn.setBackground(new Color(51,153,0));
         backTxt.setForeground(Color.white);
     }//GEN-LAST:event_backTxtMouseEntered
 
@@ -380,29 +279,41 @@ public class SubirCarros extends javax.swing.JFrame {
     }//GEN-LAST:event_backTxtMouseExited
 
     
-    public byte[] AbrirArchivo(File archivo){
-        byte[] imagen= new byte[1024*1000];
-        try{
-            entrada=new FileInputStream(archivo);
-            entrada.read(imagen);
-        } catch(Exception e){
-            System.out.println("ERROR");
-        }
-        return imagen;
-    }
-    public String GuardarArchivo(String direccion, byte[]imagen){
-        String mensaje=null;
-        try{
-            this.salida=new FileOutputStream(direccion);
-            this.salida.write(imagen);
-            mensaje="Archivo Guardado";
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Archivo no guardado");
-        }
-        
-        return mensaje;
-    }
     
+    public void TablaDeClientes(){
+
+        Stack<PersonaNatural> st = new Stack<PersonaNatural>();
+        PersonaNatural p=null;
+        //st= SerializarObjeto.leerArchivoTrabajador(nArchivo,PersonaNatural.class);
+        //stack clase generica
+        st= SerializarObjeto.deserializarObjeto(nArchivo,PersonaNatural.class);
+        //List<PersonaNatural> st = new LinkedList<>();
+        //System.out.println(p);
+       
+        if(st==null){
+            JOptionPane.showMessageDialog(null,"Error en lectura de archivo",
+                    "ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            DefaultTableModel table= new DefaultTableModel(new String[]{"DNI","Nombres","Apellidos","Correo"},st.size());
+            TablaDeClientes.setModel(table);
+            TableModel t = TablaDeClientes.getModel();
+            
+            for(int i=0;i<st.size();i++){
+                t.setValueAt(st.get(i).getDni(), i, 0);
+                t.setValueAt(st.get(i).getNombre(), i, 1);
+                t.setValueAt(st.get(i).getApellidos(),i, 2);
+                t.setValueAt(st.get(i).getCorreo(), i, 3);
+            }
+            
+        }
+      
+          
+    }
+    /**
+     * @param args the command line arguments
+     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -417,33 +328,26 @@ public class SubirCarros extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SubirCarros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SubirCarros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SubirCarros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SubirCarros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MostrarClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SubirCarros().setVisible(true);
+                new MostrarClientes().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Carropng;
-    private javax.swing.JPanel GuardarBtn;
-    private javax.swing.JLabel GuardarTxt;
-    private javax.swing.JLabel SubirCarroTxt;
-    private javax.swing.JPanel SubircarroBtn;
+    private javax.swing.JTable TablaDeClientes;
     private javax.swing.JPanel backBtn;
     private javax.swing.JLabel backTxt;
     private javax.swing.JPanel exitBtn;
@@ -451,6 +355,7 @@ public class SubirCarros extends javax.swing.JFrame {
     private javax.swing.JPanel header;
     private javax.swing.JPanel hideBtn;
     private javax.swing.JLabel hideTxt;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

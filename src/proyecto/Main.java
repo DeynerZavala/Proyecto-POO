@@ -16,9 +16,11 @@ public class Main {
     public static void main(String args[]) {
        
         new Inicio().setVisible(true);
-       // new Registrar_clientes().setVisible(true);
-        //PersonaNatural n=new PersonaNatural("74997835");
+      // new Registrar_clientes().setVisible(true);
+       // PersonaNatural n=new PersonaNatural(74997835);
        // n.Hallar_datos();
+       // n.Hallarcodigoverificador();
+        
     }
     
 }

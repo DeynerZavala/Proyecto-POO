@@ -1,26 +1,43 @@
+package proyecto;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyecto;
 
 /**
  *
  * @author USUARIO
  */
-public class VehiculoDeTransporte extends Vehiculo{
-    protected String color;
+public class VehiculoAuto extends VehiculoDeTransporte{
+    private int NroAsientos;
+    private String Categoria;
 
-    public VehiculoDeTransporte(String color, String CodigoPlaca, String Marca, String AñodeFabricacion, String Transmicion, String Combustible, int PrecioDeAlquilerxdia, String Seguro, int Precio, String Modelo) {
-        super(CodigoPlaca, Marca, AñodeFabricacion, Transmicion, Combustible, PrecioDeAlquilerxdia, Seguro, Precio, Modelo);
-        this.color = color;
+    public VehiculoAuto(int NroAsientos, String Categoria, String color, String CodigoPlaca, String Marca, String AñodeFabricacion, String Transmicion, String Combustible, int PrecioDeAlquilerxdia, String Seguro, int Precio, String Modelo) {
+        super(color, CodigoPlaca, Marca, AñodeFabricacion, Transmicion, Combustible, PrecioDeAlquilerxdia, Seguro, Precio, Modelo);
+        this.NroAsientos = NroAsientos;
+        this.Categoria = Categoria;
     }
-
-  
     
     @Override
     public void MostrarCaracteristicas(){
         
+    }
+
+    public int getNroAsientos() {
+        return NroAsientos;
+    }
+
+    public void setNroAsientos(int NroAsientos) {
+        this.NroAsientos = NroAsientos;
+    }
+
+    public String getCategoria() {
+        return Categoria;
+    }
+
+    public void setCategoria(String Categoria) {
+        this.Categoria = Categoria;
     }
 
     public String getColor() {
@@ -45,23 +62,6 @@ public class VehiculoDeTransporte extends Vehiculo{
 
     public void setMarca(String Marca) {
         this.Marca = Marca;
-    }
-
-    public int getPrecio() {
-        return Precio;
-    }
-
-    public void setPrecio(int Precio) {
-        this.Precio = Precio;
-    }
-
-    public String getModelo() {
-        return Modelo;
-    }
-
-    @Override
-    public void setModelo(String Modelo) {
-        this.Modelo = Modelo;
     }
 
     public String getAñodeFabricacion() {
@@ -103,5 +103,22 @@ public class VehiculoDeTransporte extends Vehiculo{
     public void setSeguro(String Seguro) {
         this.Seguro = Seguro;
     }
+
+    public int getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(int Precio) {
+        this.Precio = Precio;
+    }
+
+    public String getModelo() {
+        return Modelo;
+    }
+
+    public void setModelo(String Modelo) {
+        this.Modelo = Modelo;
+    }
+    
     
 }
